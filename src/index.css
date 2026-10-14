@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-50: #eef8ff;
+  --color-brand-100: #d8eeff;
+  --color-brand-200: #b9e2ff;
+  --color-brand-300: #89d1ff;
+  --color-brand-400: #4cb8fb;
+  --color-brand-500: #1aa4df;
+  --color-brand-600: #0a83c0;
+  --color-brand-700: #0b689b;
+  --color-violet-brand: #5b2a9a;
+  --color-ink: #0b1530;
+  --color-ink-2: #121f42;
+}
+
+html { scroll-behavior: smooth; }
+body { @apply bg-white text-slate-700 antialiased font-sans; }
+::selection { background: #b9e2ff; color: #0b1530; }
+
+.text-gradient {
+  background: linear-gradient(90deg, #1aa4df 0%, #6d3fc0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(148,163,184,.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148,163,184,.12) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+@keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+.animate-marquee { animation: marquee 40s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee { animation: none; }
+}
